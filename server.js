@@ -48,6 +48,19 @@ app.put('/items/:id', function(req, res) {
    }); 
 });
 
+app.delete('/items/:id', function(req, res) {
+   Item.findOneAndRemove({
+       _id: req.params.id
+   }, function(err, item) {
+       if(err) {
+           return res.status(500).json({
+               message: 'Internal Server Error'
+           });
+       }
+       res.status(200).json(item);
+   });
+});
+
 app.use('*', function(req, res) {
     res.status(404).json({
         message: 'Not Found'
