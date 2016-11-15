@@ -8,3 +8,10 @@ addons:
     - mongodb-3.2-precise
     packages:
     - mongodb-org-server
+deploy:
+  provider: heroku
+  api_key: 
+    secure: 08d1a138-b01c-455b-9d92-73e0ef738d0f
+  app: salty-basin-17915
+  on:
+    repo: mqasimb/mongo-shopping-list
